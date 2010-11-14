@@ -1,0 +1,182 @@
+
+<config>
+
+    <tabs>
+        <tbtall translate="label" module="enhancedgrid">
+            <label>WDCA Extensions</label>
+            <sort_order>100</sort_order>
+        </tbtall>
+    </tabs>
+   <sections>
+        <enhancedgrid translate="label" module="enhancedgrid">
+            <label>Enhanced Product Grid</label>
+            <tab>tbtall</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+                <about translate="label">
+                    <label>About This Extension</label>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>         
+                        <notice translate="label">
+                            <label>Extension Information Provided By WWW.WDCA.CA</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>enhancedgrid/system_html</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </notice>          
+                    </fields>
+                </about>
+                <columns translate="label">
+                    <label>Column Options</label>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>                
+                        <showcolumns translate="label">
+                            <label>Show Columns</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>TBT_Enhancedgrid_Model_system_config_source_columns_show</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </showcolumns>
+                        <truncatelongtextafter translate="label">
+                            <label>Truncate Long Texts After X Characters </label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </truncatelongtextafter>
+                        <!--showimages translate="label">
+                            <label>Show Product Images</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </showimages-->
+                    </fields>
+                </columns>
+                <images translate="label">
+                    <label>In-Grid Image Options</label>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+                        <showurl translate="label comment">
+                            <label>Show Image Url</label>
+                            <comment>(When product image is hidden for that row)</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </showurl>
+                        <showbydefault translate="label comment">
+                            <label>Show Image By Default</label>
+                            <comment>If your grid has a large page size by default this could get slow.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </showbydefault>
+                        <width translate="label comment">
+                            <label>Image Width</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </width>
+                        <height translate="label comment">
+                            <label>Image Height</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </height>
+                    </fields>
+                </images>
+                <defaults translate="label">
+                    <label>Default Grid State</label>
+                    <sort_order>400</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+                        <limit translate="label">
+                            <label>Page Size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </limit>
+                        <page translate="label">
+                            <label>Initial Page Number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </page>
+                        <sort translate="label comment">
+                            <label>Sort Column</label>
+                            <comment>The selected column must be also selected above if it's not already there</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>TBT_Enhancedgrid_Model_system_config_source_columns_show</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </sort>
+                        <dir translate="label">
+                            <label>Sort Column Direction</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>TBT_Enhancedgrid_Model_system_config_source_sort_direction</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </dir>
+                    </fields>
+                </defaults>
+                <!--export translate="label">
+                    <label>Products Grid Export</label>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+                        <isenabled translate="label">
+                            <label>Enable Quick Export</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </isenabled>
+                    </fields>
+                </export-->
+                <!--search translate="label">
+                    <label>Products Grid Search</label>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <fields>
+                        <isenabled translate="label">
+                            <label>Enable Fulltext Search</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                        </isenabled>
+                    </fields>
+                </search-->
+            </groups>
+        </enhancedgrid>
+    </sections>
+</config>
