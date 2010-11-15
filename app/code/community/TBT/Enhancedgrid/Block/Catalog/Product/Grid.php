@@ -193,7 +193,7 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
                     'entity_id=category_id',
                     "_table_category.attribute_id={$category_name_attribute_id}",
                     'left');
-            //$collection->groupByAttribute('entity_id');
+            $collection->groupByAttribute('entity_id');
             
         }
         
