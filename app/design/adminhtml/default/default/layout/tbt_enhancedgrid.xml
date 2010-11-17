@@ -29,4 +29,5 @@
         <action method="addItem" ifconfig="enhancedgrid/general/isenabled"><type>js_css</type><name>tbt/enhancedgrid/resources/css/enhancedgrid.css</name></action>
       </reference> 
     </default>
+    
 </layout>

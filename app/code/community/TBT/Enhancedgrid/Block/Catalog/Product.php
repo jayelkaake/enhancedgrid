@@ -47,6 +47,11 @@ class TBT_Enhancedgrid_Block_Catalog_Product extends Mage_Adminhtml_Block_Catalo
         $this->setTemplate('tbt/enhancedgrid/catalog/product.phtml');
         $this->setChild('grid', $this->getLayout()->createBlock('enhancedgrid/catalog_product_grid', 'product.enhancedgrid'));
         
+        //@nelkaake -a 16/11/10: 
+        $store_switcher =  $this->getLayout()->createBlock('adminhtml/store_switcher', 'store_switcher');
+        $store_switcher->setUseConfirm(false);
+        $this->setChild('store_switcher', $store_switcher);
+        
         $this->setChild('add_new_button',
         $this->getLayout()->createBlock('adminhtml/widget_button')
             ->setData(array(

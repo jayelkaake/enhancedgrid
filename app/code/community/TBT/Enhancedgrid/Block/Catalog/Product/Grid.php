@@ -56,7 +56,7 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
 
     }
     
-    private function prepareDefaults() {
+    protected function prepareDefaults() {
         $this->setDefaultLimit(Mage::getStoreConfig('enhancedgrid/defaults/limit'));
         $this->setDefaultPage(Mage::getStoreConfig('enhancedgrid/defaults/page'));
         $this->setDefaultSort(Mage::getStoreConfig('enhancedgrid/defaults/sort'));
@@ -64,7 +64,7 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
 
     }
     
-    private function prepareColumnSettings() {
+    protected function prepareColumnSettings() {
         $storeSettings = Mage::getStoreConfig('enhancedgrid/columns/showcolumns');
         
         $tempArr = explode(',', $storeSettings);
@@ -212,20 +212,25 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
      * if the attribute has options an options entry will be 
      * added to $columnOptions
      */               
-    private function loadColumnOptions($attr_code) {
+    protected function loadColumnOptions($attr_code) {
         $attr = Mage::getModel('eav/entity_attribute')->loadByCode('catalog_product', $attr_code);
         if(sizeof($attr->getData()) > 0) {
             if($attr->getFrontendInput() == 'select') {
             	//@nelkaake -a 13/11/10: 
                 if($attr->getSourceModel() != null) {
                  $sourcemodel = Mage::getModel($attr->getSourceModel());
+                 //@nelkaake -a 16/11/10: 
+                 $sourcemodel->setAttribute($attr);
                      if(method_exists($sourcemodel, 'getAllOptions')) {
                          try {
+                         	//die($attr->getSourceModel());
                              $values = $sourcemodel->getAllOptions();
  
                              $options = array();
+                             
                              foreach($values as $value) {
-                                 $options[$value['value']] = $value['label'];
+
+                             	$options[$value['value']] = $value['label'];
                              }
                              //die($attr_code);
                              $this->columnOptions[$attr_code] = $options;
@@ -444,17 +449,15 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
         }
 
         if($this->colIsVisible('categories')) {
-            if (!Mage::app()->isSingleStoreMode()) {
-                $this->addColumn('categories',
-                    array(
-                        'header'=> Mage::helper('catalog')->__('Categories'),
-                        'width' => '100px',
-                        'sortable'  => true,
-                        'index'     => 'categories',
-                        'sort_index'     => 'category',
-                        'filter_index'     => 'category',
-                ));
-            }
+         $this->addColumn('categories',
+             array(
+                 'header'=> Mage::helper('catalog')->__('Categories'),
+                 'width' => '100px',
+                 'sortable'  => true,
+                 'index'     => 'categories',
+                 'sort_index'     => 'category',
+                 'filter_index'     => 'category',
+         ));
         }
 
         // EG: Show all (other) needed columns.
