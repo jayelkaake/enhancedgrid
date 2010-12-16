@@ -31,7 +31,7 @@
  * @package    Mage_Adminhtml
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-include_once "Mage/Adminhtml/controllers/Catalog/ProductController.php";
+include_once "Mage".DS."Adminhtml".DS."controllers".DS."Catalog".DS."ProductController.php";
 class TBT_Enhancedgrid_Catalog_ProductController extends Mage_Adminhtml_Catalog_ProductController
 {
     protected $massactionEventDispatchEnabled = true;

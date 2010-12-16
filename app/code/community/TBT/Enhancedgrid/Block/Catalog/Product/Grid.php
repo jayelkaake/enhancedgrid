@@ -132,7 +132,8 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
                 ->getSearchCollection($queryString, $this->getRequest());
         }
         if(!$collection) {
-            $collection = Mage::getModel('catalog/product')->getCollection();
+        	//@nelkaake -a 15/12/10: To fix categories column issue this is a tempoary way we are going to load the modified collection class.
+            $collection = new TBT_Enhancedgrid_Model_Resource_Eav_Mysql4_Product_Collection();
         }
         $store = $this->_getStore();
         $collection 
@@ -168,33 +169,7 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
         }
         
         if($this->colIsVisible('categories')) {
-            $collection 
-                ->joinField('category_id',
-                    'catalog/category_product',
-                    'category_id',
-                    'product_id=entity_id',
-                    null,
-                    'left');
-            $category_name_attribute_id = Mage::getModel('eav/entity_attribute')->loadByCode('catalog_category', 'name')->getId();
-            
-            //@nelkaake -m 13/11/10: Added support for tables with prefixes
-        	$ccev_t = Mage::getConfig()->getTablePrefix(). 'catalog_category_entity_varchar';
-            $collection 
-                ->joinField('categories',
-                    $ccev_t,
-                    'GROUP_CONCAT(_table_categories.value)',
-                    'entity_id=category_id',
-                    "_table_categories.attribute_id={$category_name_attribute_id}",
-                    'left');
-            $collection 
-                ->joinField('category',
-                    $ccev_t,
-                    'value',
-                    'entity_id=category_id',
-                    "_table_category.attribute_id={$category_name_attribute_id}",
-                    'left');
-            $collection->groupByAttribute('entity_id');
-            
+            $this->setJoinCategories(true);
         }
         
         $this->setCollection($collection);
@@ -621,8 +596,9 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
     
     public function getRowUrl($row)
     {
+    	//@nelkaake -m 16/11/10: Changed to use _getStore function
         return $this->getUrl('adminhtml/catalog_product/edit', array(
-            'store'=>$this->getRequest()->getParam('store'),
+            'store'=>$this->_getStore(),
             'id'=>$row->getId())
         );
     }
@@ -642,5 +618,49 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
         );
         return $dividerTemplate;
     }
+
+    /**
+     * @nelkaake -a 15/12/10: TODO move this to a decorator class.
+     */
+    protected function _preparePage()
+    {
+    	if(!$this->getJoinCategories()) {
+    		return parent::_preparePage();
+    	}
+    	
+        $this->getCollection()->getSelect()->reset(Zend_Db_Select::GROUP);
+
+        parent::_preparePage();
+        
+        $collection = $this->getCollection();
+   		$collection 
+               ->joinField('category_id',
+                   'catalog/category_product',
+                   'category_id',
+                   'product_id=entity_id',
+                   null,
+                   'left');
+           $category_name_attribute_id = Mage::getModel('eav/entity_attribute')->loadByCode('catalog_category', 'name')->getId();
+           
+           //@nelkaake -m 13/11/10: Added support for tables with prefixes
+       	   $ccev_t = Mage::getConfig()->getTablePrefix(). 'catalog_category_entity_varchar';
+           $collection 
+               ->joinField('categories',
+                   $ccev_t,
+                   'GROUP_CONCAT(_table_categories.value)',
+                   'entity_id=category_id',
+                   "_table_categories.attribute_id={$category_name_attribute_id}",
+                   'left');
+           $collection 
+               ->joinField('category',
+                   $ccev_t,
+                   'value',
+                   'entity_id=category_id',
+                   "_table_category.attribute_id={$category_name_attribute_id}",
+                   'left');
+           $collection->groupByAttribute('entity_id');
+       
+    }
+    
     
 }

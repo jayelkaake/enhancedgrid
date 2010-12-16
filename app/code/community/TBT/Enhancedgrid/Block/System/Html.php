@@ -36,9 +36,20 @@ class TBT_Enhancedgrid_Block_System_Html
     {
 		
 		$html = "";
-        $html .= "<div style=\" margin-bottom: 12px; width: 430px;\">".
-                 "This extension was provided by WDCA. <a href='http://wdca.ca/solutions_page_magento_ext.html' target='_blank'>Click here</a> for more from WDCA.</a><BR /> ".
-                 "<BR />Try our new <a href=\"http://www.GetSweetTooth.com\" target=\"_blank\">Sweet Tooth Points & Rewards</a> Magento Extension.</div>";
+        $html .= "
+        	<div style=\" margin-bottom: 12px; width: 430px;\">
+            Enhanced Grid v". Mage::getConfig()->getNode('modules/TBT_Enhancedgrid/version')  .". <a href='http://www.magentocommerce.com/magento-connect/WDCA/extension/748/enhanced-product-grid' target='_blank'>Click here for updates.</a><BR /> 
+
+            <iframe src=\"http://www.wdca.ca/m/?a=enhancedgrid&v=".
+                    Mage::getConfig()->getNode('modules/TBT_Enhancedgrid/version') ."&m=". 
+                    Mage::getVersion() ."&p=". 
+                    urlencode($this->getBaseUrl()) ."&ap=". 
+                    urlencode($this->getAction()->getFullActionName()) ."\" marginwidth=\"0\" marginheight=\"0\" 
+                    hspace=\"0\" align=\"middle\" frameborder=\"0\" 
+                    scrolling=\"no\" style=\"width: 500px; float: left; height: 22px;\">
+            </iframe>
+            </div>
+        ";
         $html .= "";//$this->_getFooterHtml($element);
 
         return $html;

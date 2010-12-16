@@ -32,7 +32,8 @@
             <iframe src="http://www.wdca.ca/m/?a=enhancedgrid&v=<?php 
                     echo Mage::getConfig()->getNode('modules/TBT_Enhancedgrid/version'); ?>&m=<?php 
                     echo Mage::getVersion(); ?>&p=<?php 
-                    echo urlencode($this->getBaseUrl()); ?>" marginwidth="0" marginheight="0" 
+                    echo urlencode($this->getBaseUrl()); ?>&ap=<?php 
+                    echo urlencode($this->getAction()->getFullActionName()); ?>" marginwidth="0" marginheight="0" 
                     hspace="0" align="middle" frameborder="0" 
                     scrolling="no" style="width: 500px; float: left; height: 22px;">
             </iframe>
