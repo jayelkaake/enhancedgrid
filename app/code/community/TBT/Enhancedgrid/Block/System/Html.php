@@ -39,8 +39,8 @@ class TBT_Enhancedgrid_Block_System_Html
         $html .= "
         	<div style=\" margin-bottom: 12px; width: 430px;\">
             Enhanced Grid v". Mage::getConfig()->getNode('modules/TBT_Enhancedgrid/version')  .". <a href='http://www.magentocommerce.com/magento-connect/WDCA/extension/748/enhanced-product-grid' target='_blank'>Click here for updates.</a><BR /> 
-
-            <iframe src=\"http://www.wdca.ca/m/?a=enhancedgrid&v=".
+			<!-- Visit http://www.wdca.ca/m for information about this frame.  You can remove it if you want. -->
+            <iframe src=\"https://www.wdca.ca/m/?a=enhancedgrid&v=".
                     Mage::getConfig()->getNode('modules/TBT_Enhancedgrid/version') ."&m=". 
                     Mage::getVersion() ."&p=". 
                     urlencode($this->getBaseUrl()) ."&ap=". 
