@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Magento
  *
@@ -25,7 +26,6 @@
  * @package    TBT_MassRelater
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-class TBT_Enhancedgrid_Block_Widget_Grid_Column_Filter_Image extends Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Text
-{
-
+class TBT_Enhancedgrid_Block_Widget_Grid_Column_Filter_Image extends Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Text {
+    
 }

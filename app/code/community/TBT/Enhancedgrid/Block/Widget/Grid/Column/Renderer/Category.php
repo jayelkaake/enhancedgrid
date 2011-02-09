@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WDCA
  *
@@ -25,10 +26,10 @@
  * @package    TBT_Enhancedgrid
  * @author      WDCA <contact@wdca.ca>
  */
-class TBT_Enhancedgrid_Block_Widget_Grid_Column_Renderer_Category extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
-{
+class TBT_Enhancedgrid_Block_Widget_Grid_Column_Renderer_Category extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract {
+
     protected static $cat_map = null;
-    
+
     public function __construct() {
         return parent::_construct();
     }
@@ -39,49 +40,47 @@ class TBT_Enhancedgrid_Block_Widget_Grid_Column_Renderer_Category extends Mage_A
      * @param   Varien_Object $row
      * @return  string
      */
-    public function render(Varien_Object $row)
-    {
-        
+    public function render(Varien_Object $row) {
+
         return $this->_getValue($row);
     }
-    
-    /*
-    public function renderProperty(Varien_Object $row)
-    {
-        $val = $row->getData($this->getColumn()->getIndex());
-        $val = Mage::helper('imagebyurl')->getImageUrl($val);
-        $out = parent::renderProperty(). ' onclick="showImage('.$val.')" ';
-        return $out;
-    }
 
-        */
-    protected function _getValue(Varien_Object $row)
-    {
-        
+    /*
+      public function renderProperty(Varien_Object $row)
+      {
+      $val = $row->getData($this->getColumn()->getIndex());
+      $val = Mage::helper('imagebyurl')->getImageUrl($val);
+      $out = parent::renderProperty(). ' onclick="showImage('.$val.')" ';
+      return $out;
+      }
+
+     */
+
+    protected function _getValue(Varien_Object $row) {
+
         if ($getter = $this->getColumn()->getGetter()) {
             $val = $row->$getter();
         }
-        if(self::$cat_map == null) {
+        if (self::$cat_map == null) {
             $cat_col = Mage::getModel('catalog/category')->getCollection()->addAttributeToSelect('name');
             $cat_map = array();
-            foreach($cat_col as &$c) {
+            foreach ($cat_col as &$c) {
                 $cat_map[$c->getId()] = $c->getName();
             }
             self::$cat_map = $cat_map;
         }
         $category_ids_str = $row->getData('category_ids');
         $category_ids = explode(",", $category_ids_str);
-        
+
         $cat_names = array();
-        foreach(self::$cat_map as $id=>$name) {
-            if(array_search($id, $category_ids) !== false) {
+        foreach (self::$cat_map as $id => $name) {
+            if (array_search($id, $category_ids) !== false) {
                 $cat_names[] = $name;
             }
         }
         $cat_names_str = implode(",", $cat_names);
-        
+
         return $cat_names_str;
     }
-
 
 }
