@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Magento
  *
@@ -32,31 +31,35 @@
  * @package    Mage_Adminhtml
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-class TBT_Enhancedgrid_Block_Catalog_Product extends Mage_Adminhtml_Block_Catalog_Product {
-
-    public function __construct() {
+class TBT_Enhancedgrid_Block_Catalog_Product extends Mage_Adminhtml_Block_Catalog_Product
+{
+    
+    public function __construct()
+    {
         parent::__construct();
         $this->_headerText = Mage::helper('enhancedgrid')->__('Manage Products (Enhanced)');
+        
     }
-
-    protected function _prepareLayout() {
+    
+    protected function _prepareLayout()
+    {
         parent::_prepareLayout();
         $this->setTemplate('tbt/enhancedgrid/catalog/product.phtml');
         $this->setChild('grid', $this->getLayout()->createBlock('enhancedgrid/catalog_product_grid', 'product.enhancedgrid'));
-
+        
         //@nelkaake -a 16/11/10: 
-        $store_switcher = $this->getLayout()->createBlock('adminhtml/store_switcher', 'store_switcher');
+        $store_switcher =  $this->getLayout()->createBlock('adminhtml/store_switcher', 'store_switcher');
         $store_switcher->setUseConfirm(false);
         $this->setChild('store_switcher', $store_switcher);
-
-        $this->setChild('add_new_button', $this->getLayout()->createBlock('adminhtml/widget_button')
-                        ->setData(array(
-                            'label' => Mage::helper('catalog')->__('Add Product'),
-                            'onclick' => "setLocation('" . $this->getUrl('adminhtml/*/new') . "')",
-                            'class' => 'add'
-                        ))
+        
+        $this->setChild('add_new_button',
+        $this->getLayout()->createBlock('adminhtml/widget_button')
+            ->setData(array(
+                'label'     => Mage::helper('catalog')->__('Add Product'),
+                'onclick'   => "setLocation('".$this->getUrl('adminhtml/*/new')."')",
+                'class'   => 'add'
+                ))
         );
     }
-
 }
 

@@ -23,37 +23,37 @@ var omitformtags=["input", "textarea", "select"]
 omitformtags=omitformtags.join("|")
 
 function disableselect(e){
-    if (omitformtags.indexOf(e.target.tagName.toLowerCase())==-1)
-        return false
+if (omitformtags.indexOf(e.target.tagName.toLowerCase())==-1)
+return false
 }
 
 function reEnable(){
-    return true
+return true
 }
 
 var originalHighlighting = false;
 
 function disableHighlighting() {
-    if (typeof document.onselectstart!="undefined") {
-        originalHighlighting = document.onselectstart;
-        document.onselectstart=new Function ("return false")
-    } else{
-        originalHighlighting = {
-            down: document.onmousedown,
-            up:   document.onmouseup
-        }
-        document.onmousedown=disableselect
-        document.onmouseup=reEnable
+  if (typeof document.onselectstart!="undefined") {
+    originalHighlighting = document.onselectstart;
+    document.onselectstart=new Function ("return false")
+  } else{
+    originalHighlighting = {
+      down: document.onmousedown,
+      up:   document.onmouseup
     }
+    document.onmousedown=disableselect
+    document.onmouseup=reEnable
+  }
 }
 
 function enableHighlighting() {
-    if (typeof document.onselectstart!="undefined") {
-        document.onselectstart = originalHighlighting;
-    } else{
-        document.onmousedown=originalHighlighting.down;
-        document.onmouseup=originalHighlighting.up;
-    }
+  if (typeof document.onselectstart!="undefined") {
+    document.onselectstart = originalHighlighting;
+  } else{
+    document.onmousedown=originalHighlighting.down;
+    document.onmouseup=originalHighlighting.up;
+  }
 }
 
 function keyWasPressed(e, targetKeyNum) {

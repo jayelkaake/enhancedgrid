@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Magento
  *
@@ -25,6 +24,7 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
+
 /**
  * Store grid column filter
  *
@@ -32,6 +32,8 @@
  * @package    Mage_Adminhtml
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-class TBT_Rewards_Block_Widget_Grid_Column_Filter_Category extends Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Text {
-    
+class TBT_Rewards_Block_Widget_Grid_Column_Filter_Category extends Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Text
+{
+
+
 }

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * WDCA
  *
@@ -26,26 +25,26 @@
  * @package    TBT_Enhancedgrid
  * @author      WDCA <contact@wdca.ca>
  */
-class TBT_Enhancedgrid_Model_System_Config_Source_Columns_Show {
-
-    public function toOptionArray() {
-
+class TBT_Enhancedgrid_Model_System_Config_Source_Columns_Show
+{
+    public function toOptionArray()
+    {
+    
         $collection = Mage::getResourceModel('eav/entity_attribute_collection')
-                ->setEntityTypeFilter(Mage::getModel('eav/entity')->setType('catalog_product')->getTypeId())
-                ->addFilter("is_visible", 1);
+            ->setEntityTypeFilter( Mage::getModel('eav/entity')->setType('catalog_product')->getTypeId() )
+            ->addFilter("is_visible", 1);
         $cols = array();
-        $cols[] = array('value' => 'id', 'label' => 'ID');
-        $cols[] = array('value' => 'type_id', 'label' => 'Type (simple, bundle, etc)');
-        $cols[] = array('value' => 'attribute_set_id', 'label' => 'Attribute Set');
-        $cols[] = array('value' => 'qty', 'label' => 'Quantity');
-        $cols[] = array('value' => 'websites', 'label' => 'Websites');
-        $cols[] = array('value' => 'categories', 'label' => 'Categories');
+        $cols[] = array('value' => 'id',   'label' => 'ID');
+        $cols[] = array('value' => 'type_id',   'label' => 'Type (simple, bundle, etc)');
+        $cols[] = array('value' => 'attribute_set_id',   'label' => 'Attribute Set');
+        $cols[] = array('value' => 'qty',   'label' => 'Quantity');
+        $cols[] = array('value' => 'websites',   'label' => 'Websites');
+        $cols[] = array('value' => 'categories',   'label' => 'Categories');
         //@nelkaake Tuesday April 27, 2010 :
-        $cols[] = array('value' => 'created_at', 'label' => 'Date Created');
-        foreach ($collection->getItems() as $col) {
-            $cols[] = array('value' => $col->getAttributeCode(), 'label' => $col->getFrontendLabel());
+        $cols[] = array('value' => 'created_at',   'label' => 'Date Created');
+        foreach($collection->getItems() as $col) {
+            $cols[] = array('value' => $col->getAttributeCode(),   'label' => $col->getFrontendLabel());
         }
         return $cols;
     }
-
 }

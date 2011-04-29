@@ -15,44 +15,44 @@
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 function chooseWhatToRelateTo() {
-    var productids = window.prompt("Enter the id's for products you'd like to relate the currently selected products to.\n"
-        +"For example: Suppose you selected X, Y and Z.  If you enter 'A,B' here, X will be\n"
-        +"related to A and B, Y will be related to A and B, etc.\n"
-        +"Separate multiple product ids by a comma as shown in the example above.", "<Enter product IDs (NOT SKUs!)>");
-    if (productids == "" || productids == null) {
-        return null
-    }
-    if (!window.confirm("Are you sure you'd like to one-way relate selected grid products to products ("+ productids +")")) {
-        return null
-    }
-    return productids;
+  var productids = window.prompt("Enter the id's for products you'd like to relate the currently selected products to.\n"
+                  +"For example: Suppose you selected X, Y and Z.  If you enter 'A,B' here, X will be\n"
+                  +"related to A and B, Y will be related to A and B, etc.\n"
+                  +"Separate multiple product ids by a comma as shown in the example above.", "<Enter product IDs (NOT SKUs!)>");
+  if (productids == "" || productids == null) {
+    return null
+  }
+  if (!window.confirm("Are you sure you'd like to one-way relate selected grid products to products ("+ productids +")")) {
+    return null
+  }
+  return productids;
 }
 function chooseWhatToCrossSellTo() {
-    var productids = window.prompt("Enter the id's for products you'd like to add as cross-sell to the currently selected products.\n"
-        +"For example: Suppose you selected X, Y and Z.  If you enter 'A,B' here, X will be\n"
-        +"cross-sold to A and B, Y will be cross-sold with A and with B, etc.\n"
-        +"Separate multiple product ids by a comma as shown in the example above.", "<Enter product IDs (NOT SKUs!)>");
-    if (productids == "" || productids == null) {
-        return null
-    }
-    if (!window.confirm("Are you sure you'd like to one-way cross-sell products ("+ productids +") to selected grid products?")) {
-        return null
-    }
-    return productids;
+  var productids = window.prompt("Enter the id's for products you'd like to add as cross-sell to the currently selected products.\n"
+                  +"For example: Suppose you selected X, Y and Z.  If you enter 'A,B' here, X will be\n"
+                  +"cross-sold to A and B, Y will be cross-sold with A and with B, etc.\n"
+                  +"Separate multiple product ids by a comma as shown in the example above.", "<Enter product IDs (NOT SKUs!)>");
+  if (productids == "" || productids == null) {
+    return null
+  }
+  if (!window.confirm("Are you sure you'd like to one-way cross-sell products ("+ productids +") to selected grid products?")) {
+    return null
+  }
+  return productids;
 }
 
 function chooseWhatToUpSellTo() {
-    var productids = window.prompt("Enter the id's for products you'd like to add as up-sells to the currently selected products.\n"
-        +"For example: Suppose you selected X, Y and Z.  If you enter 'A,B' here, A and B will be\n"
-        +"up-sells of X , A and B will be up-sells of Y, etc.\n"
-        +"Separate multiple product ids by a comma as shown in the example above.", "<Enter product IDs (NOT SKUs!)>");
-    if (productids == "" || productids == null) {
-        return null
-    }
-    if (!window.confirm("Are you sure you'd like add products ("+ productids +") to selected grid products up-sell?")) {
-        return null
-    }
-    return productids;
+  var productids = window.prompt("Enter the id's for products you'd like to add as up-sells to the currently selected products.\n"
+                  +"For example: Suppose you selected X, Y and Z.  If you enter 'A,B' here, A and B will be\n"
+                  +"up-sells of X , A and B will be up-sells of Y, etc.\n"
+                  +"Separate multiple product ids by a comma as shown in the example above.", "<Enter product IDs (NOT SKUs!)>");
+  if (productids == "" || productids == null) {
+    return null
+  }
+  if (!window.confirm("Are you sure you'd like add products ("+ productids +") to selected grid products up-sell?")) {
+    return null
+  }
+  return productids;
 }
 
 
@@ -60,53 +60,53 @@ function chooseWhatToUpSellTo() {
 function showSelectedImages(gridObj, checkedValues, imgTemplate) {
     var matchCounter = 0;
     gridObj.walkSelectedRows(function(ie){
-        ie.getElementsBySelector('a').each(function(a) {
-            if(a.id == "imageurl") {
-                matchCounter++;
-                a.innerHTML = imgTemplate.replace("{imgurl}", a.getAttribute('url'));
-            }
-        });
+      ie.getElementsBySelector('a').each(function(a) {
+        if(a.id == "imageurl") {
+          matchCounter++;
+          a.innerHTML = imgTemplate.replace("{imgurl}", a.getAttribute('url'));
+        }
+      });
     });
-    if(matchCounter == 0) {
-        alert("Either there was no image column, or the image column could not be found");
-    }
-    return null;
+  if(matchCounter == 0) {
+    alert("Either there was no image column, or the image column could not be found");
+  }
+  return null;
 
 }
 
 function hideSelectedImages(gridObj, checkedValues) {
     var matchCounter = 0;
     gridObj.walkSelectedRows(function(ie){
-        ie.getElementsBySelector('a').each(function(a) {
-            if(a.id == "imageurl") {
-                matchCounter++;
-                a.innerHTML = "@";
-            }
-        });
+      ie.getElementsBySelector('a').each(function(a) {
+        if(a.id == "imageurl") {
+          matchCounter++;
+          a.innerHTML = "@";
+        }
+      });
     });
-    if(matchCounter == 0) {
-        alert("Either there was no image column, or the image column could not be found");
-    }
-    return null;
+  if(matchCounter == 0) {
+    alert("Either there was no image column, or the image column could not be found");
+  }
+  return null;
 
 }
 
 function openAllImages(gridObj, checkedValues) {
     gridObj.walkSelectedRows(function(ie){
-        ie.getElementsBySelector('a').each(function(a) {
-            if(a.id == "imageurl") {
-                window.open(a.getAttribute('url'));
-            }
-        });
+      ie.getElementsBySelector('a').each(function(a) {
+        if(a.id == "imageurl") {
+          window.open(a.getAttribute('url'));
+        }
+      });
     }, 30);
-    return null;
+  return null;
 
 }
 
 function openAll(gridObj, checkedValues) {
     gridObj.walkSelectedRows(function(ie){
-        window.open(ie.id);
+      window.open(ie.id);
     }, 20);
-    return null;
+  return null;
 
 }

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Magento
  *
@@ -26,9 +25,12 @@
  * @package    TBT_MassRelater
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-class TBT_Enhancedgrid_Block_Widget_Grid_Column extends Mage_Adminhtml_Block_Widget_Grid_Column {
+class TBT_Enhancedgrid_Block_Widget_Grid_Column extends Mage_Adminhtml_Block_Widget_Grid_Column
+{
+ 
 
-    protected function _getRendererByType() {
+    protected function _getRendererByType()
+    {
         switch (strtolower($this->getType())) {
             case 'image':
                 $rendererClass = 'enhancedgrid/widget_grid_column_renderer_image';
@@ -43,7 +45,8 @@ class TBT_Enhancedgrid_Block_Widget_Grid_Column extends Mage_Adminhtml_Block_Wid
         return $rendererClass;
     }
 
-    protected function _getFilterByType() {
+    protected function _getFilterByType()
+    {
         switch (strtolower($this->getType())) {
             case 'image':
                 $filterClass = 'enhancedgrid/widget_grid_column_filter_image';

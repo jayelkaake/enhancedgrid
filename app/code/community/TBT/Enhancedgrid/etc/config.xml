@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 
 <config>
-    <modules>
-        <TBT_Enhancedgrid>
-            <version>1.3.1.2</version>
-        </TBT_Enhancedgrid>
-    </modules>
+  <modules>
+    <TBT_Enhancedgrid>
+      <version>1.3.1.2</version>
+    </TBT_Enhancedgrid>
+  </modules>
     <admin>
         <routers>
             <enhancedgrid>
@@ -22,9 +22,9 @@
 
     <global>
         <blocks>
-            <enhancedgrid>
-                <class>TBT_Enhancedgrid_Block</class>
-            </enhancedgrid>
+          <enhancedgrid>
+            <class>TBT_Enhancedgrid_Block</class>
+          </enhancedgrid>
         </blocks>
         <helpers>
             <enhancedgrid>
@@ -32,29 +32,26 @@
             </enhancedgrid>
         </helpers>
         <blocks>
-            <adminhtml>
-                <rewrite>
-                    <widget_grid_column>TBT_Enhancedgrid_Block_Widget_Grid_Column</widget_grid_column>
-                    <catalog_product>TBT_Enhancedgrid_Block_Catalog_Product</catalog_product>
-                </rewrite>
-            </adminhtml>
+          <adminhtml>
+            <rewrite>
+              <widget_grid_column>TBT_Enhancedgrid_Block_Widget_Grid_Column</widget_grid_column>
+              <catalog_product>TBT_Enhancedgrid_Block_Catalog_Product</catalog_product>
+            </rewrite>
+          </adminhtml>
         </blocks>
     
         <rewrite>
         <!-- @nelkaake -a 13/11/10: Added for Magento 1.4 compatibility -->
             <tbt_enhancedgrid_catalog_product_export_csv>
-                <from><![CDATA[#^/admin/catalog_product/((exportCsv.*))/$#]]>
-                </from>
+                <from><![CDATA[#^/admin/catalog_product/((exportCsv.*))/$#]]></from>
                 <to>/enhancedgrid/catalog_product/${1}/</to>
             </tbt_enhancedgrid_catalog_product_export_csv>
             <tbt_enhancedgrid_catalog_product_export_xml>
-                <from><![CDATA[#^/admin/catalog_product/((exportXml.*))/$#]]>
-                </from>
+                <from><![CDATA[#^/admin/catalog_product/((exportXml.*))/$#]]></from>
                 <to>/enhancedgrid/catalog_product/${1}/</to>
             </tbt_enhancedgrid_catalog_product_export_xml>
             <tbt_enhancedgrid_catalog_product>
-                <from><![CDATA[#^/adminhtml/catalog_product/((massProd.*))/$#]]>
-                </from>
+                <from><![CDATA[#^/adminhtml/catalog_product/((massProd.*))/$#]]></from>
                 <to>/enhancedgrid/catalog_product/${1}/</to>
             </tbt_enhancedgrid_catalog_product>
         </rewrite>
@@ -68,17 +65,17 @@
                 </enhancedgrid>
             </updates>
         </layout>
-        <menu>
-            <catalog module="enhancedgrid">
-                <children>
-                    <products module="enhancedgrid" translate="title">
-                        <title>Manage Products*</title>
-                        <sort_order>0</sort_order>
-                        <action>enhancedgrid/catalog_product</action>
-                    </products>
-                </children>
-            </catalog>
-        </menu>
+    	<menu>
+			<catalog module="enhancedgrid">
+        		<children>
+					<products module="enhancedgrid" translate="title">
+						<title>Manage Products*</title>
+						<sort_order>0</sort_order>
+						<action>enhancedgrid/catalog_product</action>
+					</products>
+				</children>
+			</catalog>
+	   </menu>
     </adminhtml>
 
     <default>
@@ -107,33 +104,33 @@
     
     <adminhtml>
         <acl>
-            <resources>
-                <all>
-                    <title>Allow Everything</title>
-                </all>
-                <admin>
-                    <children>
-                        <catalog>
-                            <children>
-                                <enhancedgrid>
-                                    <title>Enhanced Product Grid</title>
-                                </enhancedgrid>
-                            </children>
-                        </catalog>
-                        <system>
-                            <children>
-                                <config>
-                                    <children>
-                                        <enhancedgrid>
-                                            <title>Enhanced Grid Config</title>
-                                        </enhancedgrid>
-                                    </children>
-                                </config>
-                            </children>
-                        </system>
-                    </children>
-                </admin>
-            </resources>
+          <resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+            <admin>
+              <children>
+            	  <catalog>
+            		<children>
+    					<enhancedgrid>
+                              <title>Enhanced Product Grid</title>
+    					</enhancedgrid>
+    				</children>
+            	  </catalog>
+                  <system>
+                      <children>
+                        <config>
+                          <children>
+                            <enhancedgrid>
+                              <title>Enhanced Grid Config</title>
+                            </enhancedgrid>
+                          </children>
+                        </config>
+                      </children>
+                  </system>
+              </children>
+            </admin>
+          </resources>
         </acl>
     </adminhtml>
 </config> 

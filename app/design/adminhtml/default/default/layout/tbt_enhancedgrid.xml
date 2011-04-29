@@ -21,22 +21,13 @@
 -->
 <layout>
     <default>
-        <reference name="head">
+      <reference name="head">
         <!--action method="removeItem"><type>js</type><name>mage/adminhtml/grid.js</name></action-->
-            <action method="addJs" ifconfig="enhancedgrid/general/isenabled">
-                <script>tbt/enhancedgrid/enhancedgrid.js</script>
-            </action> 
-            <action method="addJs" ifconfig="enhancedgrid/general/isenabled">
-                <script>tbt/enhancedgrid/egsupplemental.js</script>
-            </action>
-            <action method="addJs" ifconfig="enhancedgrid/general/isenabled">
-                <script>tbt/enhancedgrid/customfunctions/catalog_products.js</script>
-            </action>
-            <action method="addItem" ifconfig="enhancedgrid/general/isenabled">
-                <type>js_css</type>
-                <name>tbt/enhancedgrid/resources/css/enhancedgrid.css</name>
-            </action>
-        </reference> 
+        <action method="addJs" ifconfig="enhancedgrid/general/isenabled"><script>tbt/enhancedgrid/enhancedgrid.js</script></action> 
+        <action method="addJs" ifconfig="enhancedgrid/general/isenabled"><script>tbt/enhancedgrid/egsupplemental.js</script></action>
+        <action method="addJs" ifconfig="enhancedgrid/general/isenabled"><script>tbt/enhancedgrid/customfunctions/catalog_products.js</script></action>
+        <action method="addItem" ifconfig="enhancedgrid/general/isenabled"><type>js_css</type><name>tbt/enhancedgrid/resources/css/enhancedgrid.css</name></action>
+      </reference> 
     </default>
     
 </layout>

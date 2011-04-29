@@ -4,10 +4,10 @@
     <tabs>
         <tbtall translate="label" module="enhancedgrid">
             <label>WDCA Extensions</label>
-            <sort_order>100</sort_order>
+            <sort_order>900</sort_order>
         </tbtall>
     </tabs>
-    <sections>
+   <sections>
         <enhancedgrid translate="label" module="enhancedgrid">
             <label>Enhanced Product Grid</label>
             <tab>tbtall</tab>
