@@ -40,6 +40,12 @@
           </adminhtml>
         </blocks>
     
+        <models>
+            <enhancedgrid>
+                <class>TBT_Enhancedgrid_Model</class>
+            </enhancedgrid>
+        </models>
+    
         <rewrite>
         <!-- @nelkaake -a 13/11/10: Added for Magento 1.4 compatibility -->
             <tbt_enhancedgrid_catalog_product_export_csv>
