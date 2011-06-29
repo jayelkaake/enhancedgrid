@@ -30,8 +30,7 @@ class TBT_Enhancedgrid_Model_System_Config_Source_Columns_Show
     public function toOptionArray()
     {
     
-        $collection = Mage::getResourceModel('eav/entity_attribute_collection')
-            ->setEntityTypeFilter( Mage::getModel('eav/entity')->setType('catalog_product')->getTypeId() )
+        $collection = Mage::getResourceModel('catalog/product_attribute_collection')
             ->addFilter("is_visible", 1);
         $cols = array();
         $cols[] = array('value' => 'id',   'label' => 'ID');

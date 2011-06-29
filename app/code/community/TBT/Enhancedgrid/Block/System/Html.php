@@ -39,15 +39,9 @@ class TBT_Enhancedgrid_Block_System_Html
         $html .= "
         	<div style=\" margin-bottom: 12px; width: 430px;\">
             Enhanced Grid v". Mage::getConfig()->getNode('modules/TBT_Enhancedgrid/version')  .". <a href='http://www.magentocommerce.com/magento-connect/WDCA/extension/748/enhanced-product-grid' target='_blank'>Click here for updates.</a><BR /> 
-			<!-- Visit http://www.wdca.ca/m for information about this frame.  You can remove it if you want. -->
-            <iframe src=\"https://www.wdca.ca/m/?a=enhancedgrid&v=".
-                    Mage::getConfig()->getNode('modules/TBT_Enhancedgrid/version') ."&m=". 
-                    Mage::getVersion() ."&p=". 
-                    urlencode($this->getBaseUrl()) ."&ap=". 
-                    urlencode($this->getAction()->getFullActionName()) ."\" marginwidth=\"0\" marginheight=\"0\" 
-                    hspace=\"0\" align=\"middle\" frameborder=\"0\" 
-                    scrolling=\"no\" style=\"width: 500px; float: left; height: 22px;\">
-            </iframe>
+		";
+		$html .= Mage::getBlockSingleton('enhancedgrid/widget_loyalty')->toHtml();
+		$html .= "
             </div>
         ";
         $html .= "";//$this->_getFooterHtml($element);
@@ -86,7 +80,7 @@ class TBT_Enhancedgrid_Block_System_Html
 		if($ver){
 			$field = $fieldset->addField($moduleName, 'label',
 				array(
-					'name'          => 'ssssss',
+					'name'          => 'unused',
 					'label'         => $moduleName,
 					'value'         => $ver
 				))->setRenderer($this->_getFieldRenderer());
