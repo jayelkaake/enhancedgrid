@@ -3,7 +3,7 @@
 <config>
   <modules>
     <TBT_Enhancedgrid>
-      <version>1.3.2.0</version>
+      <version>1.3.2.1</version>
     </TBT_Enhancedgrid>
   </modules>
     <admin>
@@ -45,6 +45,27 @@
                 <class>TBT_Enhancedgrid_Model</class>
             </enhancedgrid>
         </models>
+    
+        <resources>
+            <enhancedgrid_setup>
+                <setup>
+                    <module>TBT_Enhancedgrid</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </enhancedgrid_setup>
+            <enhancedgrid_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </enhancedgrid_write>
+            <enhancedgrid_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </enhancedgrid_read>
+        </resources>
     
         <rewrite>
         <!-- @nelkaake -a 13/11/10: Added for Magento 1.4 compatibility -->
