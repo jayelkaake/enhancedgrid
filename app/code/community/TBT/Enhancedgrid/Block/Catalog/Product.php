@@ -44,7 +44,7 @@ class TBT_Enhancedgrid_Block_Catalog_Product extends Mage_Adminhtml_Block_Catalo
     protected function _prepareLayout()
     {
         parent::_prepareLayout();
-        $this->setTemplate('tbt/enhancedgrid/catalog/product.phtml');
+        $this->setTemplate('tbt'.DS.'enhancedgrid'.DS.'catalog'.DS.'product.phtml');
         $this->setChild('grid', $this->getLayout()->createBlock('enhancedgrid/catalog_product_grid', 'product.enhancedgrid'));
         
         //@nelkaake -a 16/11/10: 
