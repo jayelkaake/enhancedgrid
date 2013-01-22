@@ -3,9 +3,9 @@ Enhanced Admin Product Grid for Magento
 
 This Magento extension imrpoves the existing Magento admin product management grid. It adds some useful, customizable features to the admin product management grid including new columns and tools.
 
-From the makers of  [Sweet Tooth Rewards](http://www.sweettoothrewards.com For Magento)
+From the makers of  [Sweet Tooth Rewards](http://www.sweettoothrewards.com)
 
-Find it on [Magento Connect here](http://www.magentocommerce.com/magento-connect/enhanced-admin-product-grid.html Enhanced Grid on Magento Connect).
+Find it on [Magento Connect here](http://www.magentocommerce.com/magento-connect/enhanced-admin-product-grid.html).
 
 Features
 --------
