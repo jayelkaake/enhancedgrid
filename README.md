@@ -1,15 +1,13 @@
-enhancedgrid
-============
-
-=Enhanced Admin Product Grid for Magento=
+Enhanced Admin Product Grid for Magento
+=======================================
 
 This Magento extension imrpoves the existing Magento admin product management grid. It adds some useful, customizable features to the admin product management grid including new columns and tools.
 From the makers of  Sweet Tooth Rewards - http://www.sweettoothrewards.com
 
 Find it on Magento Connect here: http://www.magentocommerce.com/magento-connect/enhanced-admin-product-grid.html
 
-==Features==
-
+Features
+--------
 * Full Product Search: Search for products just like a customer would and display the results in the products grid. This is extremely handy when helping a customer find a product. To clear a search filter, click on "Reset Filter". 
 * Grid Row Highlighter: Highlight a bunch of rows by dragging your cursor over the rows while holding CTRL. Each highlighted row will be checked off. This will apply to all grids (including the catalog grid). 
 * Catalog Grid Thumbnails/Images: Shows product thumbnail images in the catalog product grid in a very organized and maintainable manor. 
@@ -20,7 +18,8 @@ Find it on Magento Connect here: http://www.magentocommerce.com/magento-connect/
 * Product Image Thumbnail Column: You will be able to view product image thumbnails in a neat column in the catalog grid. 
 * Date Created Column: Choose to show the "date created" value for a product
 
-==Installation Instructions==
+Installation Instructions
+-------------------------
 
 This module should be fully plug and play. If you're using a custom back-end package/skin, which you're probably not, you should transfer over the layout tbt_enhancedgrid.xml and tbt/enhancedgrid templates folder to your own back-end package/skin. Make sure you clear your cache. Logging in and logging back out may also be required.
 
