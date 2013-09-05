@@ -5,7 +5,9 @@
     "authors":[
         {
             "name":"Evaldas Taroza",
-            "email":"evaldas.taroza@ufirstgroup.com"
+            "email":"evaldas.taroza@ufirstgroup.com",
+            "homepage": "http://www.ufirstgroup.com",
+            "role": "Developer"
         }
     ],
     "require": {
