@@ -151,4 +151,50 @@ class TBT_Enhancedgrid_Catalog_ProductController extends Mage_Adminhtml_Catalog_
         $this->_redirect('*/*/index');
     }
 
+    // Added by Tegan Snyder. 
+    public function changeattributesetAction() {
+
+        $productIds = $this->getRequest()->getParam('product');
+        $storeId = (int)$this->getRequest()->getParam('store', 0);
+
+        // todo make sure store is set... check a post data below
+        // $postData = Mage::app()->getRequest()->getPost();
+        // echo '<pre>';
+        // print_r($postData);
+        // echo '</pre>';
+
+        if(!is_array($productIds)) {
+
+            $this->_getSession()->addError($this->__('Please select product(s)'));
+       
+        } else {
+
+            try {
+
+                foreach ($productIds as $productId) {
+
+                    $product = Mage::getSingleton('catalog/product')
+                    ->unsetData()
+                    ->setStoreId($storeId)
+                    ->load($productId)
+                    ->setAttributeSetId($this->getRequest()->getParam('attribute_set'))
+                    ->setIsMassupdate(true)
+                    ->save();
+                }
+
+                Mage::dispatchEvent('catalog_product_massupdate_after', array('products'=>$productIds));
+                $this->_getSession()->addSuccess(
+                $this->__('Total of %d record(s) were successfully updated', count($productIds)));
+
+            } catch (Exception $e) {
+
+                $this->_getSession()->addError($e->getMessage());
+            }
+
+        }
+
+        $this->_redirect('*/*/', array('store'=>(int)$this->getRequest()->getParam('store', 0)));
+
+    }
+
 }
