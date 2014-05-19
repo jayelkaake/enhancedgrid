@@ -1,0 +1,25 @@
+{
+    "name": "jayelkaake/enhancedgrid",
+    "type": "magento-module",
+    "description":"Improves the existing Magento admin product management grid. It adds some useful, customizable features to the admin product management grid including new columns and tools.",
+    "authors":[
+        {
+            "name":"Evaldas Taroza",
+            "email":"evaldas.taroza@ufirstgroup.com",
+            "homepage": "http://www.ufirstgroup.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    },
+    "extra": {
+        "map": [
+            ["app/code/community/TBT/Enhancedgrid", "app/code/community/TBT/Enhancedgrid"],
+            ["js/tbt/enhancedgrid",  "js/tbt/enhancedgrid"],
+            ["app/design/adminhtml/default/default/layout/tbt_enhancedgrid.xml",  "app/design/adminhtml/default/default/layout/tbt_enhancedgrid.xml"],
+            ["app/design/adminhtml/default/default/template/tbt/enhancedgrid",  "app/design/adminhtml/default/default/template/tbt/enhancedgrid"],
+            ["app/etc/modules/TBT_Enhancedgrid.xml",  "app/etc/modules/TBT_Enhancedgrid.xml"]
+        ]
+    }
+}
