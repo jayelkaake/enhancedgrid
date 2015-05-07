@@ -13,14 +13,14 @@ $msg_desc = "Enhanced Grid {$install_version} was successfully installed on your
 $url = "#";
 
 $message = Mage::getModel( 'adminnotification/inbox' );
-$message->setDateAdded( date( "c", time() ) );
-
-$message->setSeverity( Mage_AdminNotification_Model_Inbox::SEVERITY_NOTICE );
-
-$message->setTitle( $msg_title );
-$message->setDescription( $msg_desc );
-$message->setUrl( $url );
-$message->save();
+if( $message ){
+	$message->setDateAdded( date( "c", time() ) );
+	$message->setSeverity( Mage_AdminNotification_Model_Inbox::SEVERITY_NOTICE );
+	$message->setTitle( $msg_title );
+	$message->setDescription( $msg_desc );
+	$message->setUrl( $url );
+	$message->save();
+}
 
 $installer->endSetup(); 
 
