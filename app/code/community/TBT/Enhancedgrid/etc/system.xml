@@ -12,7 +12,7 @@
             <label>Enhanced Product Grid</label>
             <tab>tbtall</tab>
             <frontend_type>text</frontend_type>
-            <sort_order>10</sort_order>
+            <sort_order>145</sort_order>
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
             <show_in_store>0</show_in_store>
@@ -22,7 +22,7 @@
                     <sort_order>100</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
-                    <fields>         
+                    <fields>
                         <notice translate="label">
                             <label>Extension Information Provided By WWW.WDCA.CA</label>
                             <frontend_type>text</frontend_type>
@@ -31,7 +31,7 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </notice>          
+                        </notice>
                     </fields>
                 </about>
                 <columns translate="label">
@@ -39,7 +39,7 @@
                     <sort_order>200</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
-                    <fields>                
+                    <fields>
                         <showcolumns translate="label">
                             <label>Show Columns</label>
                             <frontend_type>multiselect</frontend_type>
