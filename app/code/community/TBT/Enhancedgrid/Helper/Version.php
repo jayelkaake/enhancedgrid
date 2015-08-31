@@ -1,6 +1,6 @@
 <?php
 /**
- * WDCA
+ * Sweet Tooth
  *
  * NOTICE OF LICENSE
  *
@@ -18,9 +18,9 @@
  * versions in the future. If you wish to customize Magento for your
  * needs please refer to http://www.magentocommerce.com for more information.
  *
- * @category   WDCA
+ * @category   Sweet Tooth
  * @package    TBT_Enhancedgrid
- * @copyright  Copyright (c) 2008-2011 WDCA (http://www.wdca.ca)
+ * @copyright  Copyright (c) 2008-2011 Sweet Tooth (http://www.sweettoothrewards.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 /**
@@ -28,7 +28,7 @@
  *
  * @category   TBT
  * @package    TBT_Enhancedgrid
- * @author     WDCA Team <contact@wdca.ca>
+ * @author     Sweet Tooth Team <contact@sweettoothrewards.com>
  */
 class TBT_Enhancedgrid_Helper_Version extends Mage_Core_Helper_Abstract {
 	

@@ -1,6 +1,6 @@
 <?php
 /**
- * WDCA
+ * Sweet Tooth
  *
  * NOTICE OF LICENSE
  *
@@ -12,18 +12,18 @@
  * obtain it through the world-wide-web, please send an email
  * to license@magentocommerce.com so we can send you a copy immediately.
  *
- * @category   WDCA
+ * @category   Sweet Tooth
  * @package    TBT_Enhancedgrid
- * @copyright  Copyright (c) 2008-2010 WDCA (http://www.wdca.ca)
+ * @copyright  Copyright (c) 2008-2010 Sweet Tooth (http://www.sweettoothrewards.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 /**
  * Grid checkbox column renderer
  *
- * @category   WDCA
+ * @category   Sweet Tooth
  * @package    TBT_Enhancedgrid
- * @author      WDCA <contact@wdca.ca>
+ * @author      Sweet Tooth <contact@sweettoothrewards.com>
  */
 class TBT_Enhancedgrid_Model_System_Config_Source_Columns_Show
 {
