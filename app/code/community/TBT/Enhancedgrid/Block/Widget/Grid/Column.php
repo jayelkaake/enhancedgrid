@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Magento
+ * Magento.
  *
  * NOTICE OF LICENSE
  *
@@ -13,22 +14,20 @@
  * to license@magentocommerce.com so we can send you a copy immediately.
  *
  * @category   Mage
- * @package    TBT_MassRelater
+ *
  * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 /**
- * Grid column block
+ * Grid column block.
  *
  * @category   Mage
- * @package    TBT_MassRelater
+ *
  * @author      Magento Core Team <core@magentocommerce.com>
  */
 class TBT_Enhancedgrid_Block_Widget_Grid_Column extends Mage_Adminhtml_Block_Widget_Grid_Column
 {
- 
-
     protected function _getRendererByType()
     {
         switch (strtolower($this->getType())) {
@@ -42,6 +41,7 @@ class TBT_Enhancedgrid_Block_Widget_Grid_Column extends Mage_Adminhtml_Block_Wid
                 $rendererClass = parent::_getRendererByType();
                 break;
         }
+
         return $rendererClass;
     }
 
@@ -55,7 +55,7 @@ class TBT_Enhancedgrid_Block_Widget_Grid_Column extends Mage_Adminhtml_Block_Wid
                 $filterClass = parent::_getFilterByType();
                 break;
         }
+
         return $filterClass;
     }
-
 }

@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Magento
+ * Magento.
  *
  * NOTICE OF LICENSE
  *
@@ -19,47 +20,44 @@
  * needs please refer to http://www.magentocommerce.com for more information.
  *
  * @category   Mage
- * @package    Mage_Adminhtml
+ *
  * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 /**
- * Catalog manage products block
+ * Catalog manage products block.
  *
  * @category   Mage
- * @package    Mage_Adminhtml
+ *
  * @author      Magento Core Team <core@magentocommerce.com>
  */
 class TBT_Enhancedgrid_Block_Catalog_Product extends Mage_Adminhtml_Block_Catalog_Product
 {
-    
     public function __construct()
     {
         parent::__construct();
         $this->_headerText = Mage::helper('enhancedgrid')->__('Manage Products (Enhanced)');
-        
     }
-    
+
     protected function _prepareLayout()
     {
         parent::_prepareLayout();
         $this->setTemplate('tbt'.DS.'enhancedgrid'.DS.'catalog'.DS.'product.phtml');
         $this->setChild('grid', $this->getLayout()->createBlock('enhancedgrid/catalog_product_grid', 'product.enhancedgrid'));
-        
-        //@nelkaake -a 16/11/10: 
+
+        //@nelkaake -a 16/11/10:
         $store_switcher =  $this->getLayout()->createBlock('adminhtml/store_switcher', 'store_switcher');
         $store_switcher->setUseConfirm(false);
         $this->setChild('store_switcher', $store_switcher);
-        
+
         $this->setChild('add_new_button',
         $this->getLayout()->createBlock('adminhtml/widget_button')
             ->setData(array(
                 'label'     => Mage::helper('catalog')->__('Add Product'),
                 'onclick'   => "setLocation('".$this->getUrl('adminhtml/*/new')."')",
-                'class'   => 'add'
+                'class'   => 'add',
                 ))
         );
     }
 }
-

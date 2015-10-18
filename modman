@@ -1,5 +1,5 @@
-app/code/community/TBT app/code/community/TBT
+app/code/community/TBT/Enhancedgrid app/code/community/TBT/Enhancedgrid
 app/design/adminhtml/default/default/layout/tbt_enhancedgrid.xml app/design/adminhtml/default/default/layout/tbt_enhancedgrid.xml
-app/design/adminhtml/default/default/template/tbt app/design/adminhtml/default/default/template/tbt
+app/design/adminhtml/default/default/template/tbt/enhancedgrid app/design/adminhtml/default/default/template/tbt/enhancedgrid
 app/etc/modules/TBT_Enhancedgrid.xml app/etc/modules/TBT_Enhancedgrid.xml
-js/tbt js/tbt
+js/tbt/enhancedgrid js/tbt/enhancedgrid

@@ -39,13 +39,13 @@
             </rewrite>
           </adminhtml>
         </blocks>
-    
+
         <models>
             <enhancedgrid>
                 <class>TBT_Enhancedgrid_Model</class>
             </enhancedgrid>
         </models>
-    
+
         <resources>
             <enhancedgrid_setup>
                 <setup>
@@ -66,7 +66,7 @@
                 </connection>
             </enhancedgrid_read>
         </resources>
-    
+
         <rewrite>
         <!-- @nelkaake -a 13/11/10: Added for Magento 1.4 compatibility -->
             <tbt_enhancedgrid_catalog_product_export_csv>
@@ -83,7 +83,7 @@
             </tbt_enhancedgrid_catalog_product>
         </rewrite>
     </global>
-  
+
     <adminhtml>
         <layout>
             <updates>
@@ -128,7 +128,7 @@
             </defaults>
         </enhancedgrid>
     </default>
-    
+
     <adminhtml>
         <acl>
           <resources>
@@ -160,4 +160,4 @@
           </resources>
         </acl>
     </adminhtml>
-</config> 
+</config>

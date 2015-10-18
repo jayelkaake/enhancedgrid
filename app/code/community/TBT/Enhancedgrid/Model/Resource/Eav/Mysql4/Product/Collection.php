@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Sweet Tooth
+ * Sweet Tooth.
  *
  * NOTICE OF LICENSE
  *
@@ -19,31 +20,31 @@
  * needs please refer to http://www.magentocommerce.com for more information.
  *
  * @category   Sweet Tooth
- * @package    TBT_Enhancedgrid
+ *
  * @copyright  Copyright (c) 2008-2011 Sweet Tooth (http://www.sweettoothrewards.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 /**
- * Enhanced grid Product collection
- * @nelkaake -a 15/12/10: 
+ * Enhanced grid Product collection.
+ *
+ * @nelkaake -a 15/12/10:
  *
  * @category   TBT
- * @package     Enhancedgrid
+ *
  * @author      Sweet Tooth
  */
 class TBT_Enhancedgrid_Model_Resource_Eav_Mysql4_Product_Collection
     extends Mage_Catalog_Model_Resource_Eav_Mysql4_Product_Collection
 {
-
     /**
-     * Get SQL for get record count
+     * Get SQL for get record count.
      *
      * @return Varien_Db_Select
      */
     public function getSelectCountSql()
     {
         $countSelect = parent::getSelectCountSql();
-        
+
         //@nelkaake -a 15/12/10: Reset the group selection. ( for categories grouping)
         $countSelect->reset(Zend_Db_Select::GROUP);
 

@@ -7,6 +7,7 @@ class TBT_Enhancedgrid_Model_System_Config_Source_Sort_Direction
         $sorts = array();
         $sorts[] = array('value' => 'desc',   'label' => 'Descending');
         $sorts[] = array('value' => 'asc',   'label' => 'Ascending');
+
         return $sorts;
     }
 }

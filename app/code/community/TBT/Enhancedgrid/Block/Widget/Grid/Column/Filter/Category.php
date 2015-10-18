@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Magento
+ * Magento.
  *
  * NOTICE OF LICENSE
  *
@@ -19,21 +20,18 @@
  * needs please refer to http://www.magentocommerce.com for more information.
  *
  * @category    Mage
- * @package     Mage_Adminhtml
+ *
  * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-
 /**
- * Store grid column filter
+ * Store grid column filter.
  *
  * @category   Mage
- * @package    Mage_Adminhtml
+ *
  * @author      Magento Core Team <core@magentocommerce.com>
  */
 class TBT_Rewards_Block_Widget_Grid_Column_Filter_Category extends Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Text
 {
-
-
 }

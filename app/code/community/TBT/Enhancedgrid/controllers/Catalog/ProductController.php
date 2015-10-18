@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Magento
+ * Magento.
  *
  * NOTICE OF LICENSE
  *
@@ -19,19 +20,19 @@
  * needs please refer to http://www.magentocommerce.com for more information.
  *
  * @category   Mage
- * @package    Mage_Adminhtml
+ *
  * @copyright  Copyright (c) 2008 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 /**
- * Catalog product controller
+ * Catalog product controller.
  *
  * @category   Mage
- * @package    Mage_Adminhtml
+ *
  * @author      Magento Core Team <core@magentocommerce.com>
  */
-include_once "Mage".DS."Adminhtml".DS."controllers".DS."Catalog".DS."ProductController.php";
+include_once 'Mage'.DS.'Adminhtml'.DS.'controllers'.DS.'Catalog'.DS.'ProductController.php';
 class TBT_Enhancedgrid_Catalog_ProductController extends Mage_Adminhtml_Catalog_ProductController
 {
     protected $massactionEventDispatchEnabled = true;
@@ -40,9 +41,9 @@ class TBT_Enhancedgrid_Catalog_ProductController extends Mage_Adminhtml_Catalog_
         // Define module dependent translate
         $this->setUsedModuleName('TBT_Enhancedgrid');
     }
-    
+
     /**
-     * Product list page
+     * Product list page.
      */
     public function indexAction()
     {
@@ -57,7 +58,7 @@ class TBT_Enhancedgrid_Catalog_ProductController extends Mage_Adminhtml_Catalog_
     }
 
     /**
-     * Product grid for AJAX request
+     * Product grid for AJAX request.
      */
     public function gridAction()
     {
@@ -66,16 +67,14 @@ class TBT_Enhancedgrid_Catalog_ProductController extends Mage_Adminhtml_Catalog_
             $this->getLayout()->createBlock('enhancedgrid/catalog_product_grid')->toHtml()
         );
     }
-    
+
     protected function _isAllowed()
     {
         return Mage::getSingleton('admin/session')->isAllowed('catalog/products');
     }
-    
-    
- 
+
     /**
-     * Export product grid to CSV format
+     * Export product grid to CSV format.
      */
     public function exportCsvAction()
     {
@@ -87,7 +86,7 @@ class TBT_Enhancedgrid_Catalog_ProductController extends Mage_Adminhtml_Catalog_
     }
 
     /**
-     * Export product grid to XML format
+     * Export product grid to XML format.
      */
     public function exportXmlAction()
     {
@@ -97,12 +96,11 @@ class TBT_Enhancedgrid_Catalog_ProductController extends Mage_Adminhtml_Catalog_
 
         $this->_sendUploadResponse($fileName, $content);
     }
-    
-    
-    protected function _sendUploadResponse($fileName, $content, $contentType='application/octet-stream')
+
+    protected function _sendUploadResponse($fileName, $content, $contentType = 'application/octet-stream')
     {
         $response = $this->getResponse();
-        $response->setHeader('HTTP/1.1 200 OK','');
+        $response->setHeader('HTTP/1.1 200 OK', '');
 
         $response->setHeader('Pragma', 'public', true);
         $response->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0', true);
@@ -116,29 +114,28 @@ class TBT_Enhancedgrid_Catalog_ProductController extends Mage_Adminhtml_Catalog_
         $response->sendResponse();
         die;
     }
-    
+
     ///////////////////////////////////////////////////////////////////////////////////////////////
     // Mass Functions BEGIN -->               /////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////
-    
-    
-    /** 
-     * This will relate all products selected to each other.     
-     *
-     */     
+
+
+    /**
+     * This will relate all products selected to each other.
+     */
     public function massRefreshProductsAction()
     {
         $productIds = $this->getRequest()->getParam('product');
         if (!is_array($productIds)) {
             $this->_getSession()->addError($this->__('Please select product(s)'));
-        }
-        else {
+        } else {
             try {
                 foreach ($productIds as $productId) {
                     $product = Mage::getModel('catalog/product')->load($productId);
-                    if ($this->massactionEventDispatchEnabled)
-                      Mage::dispatchEvent('catalog_product_prepare_save', 
+                    if ($this->massactionEventDispatchEnabled) {
+                        Mage::dispatchEvent('catalog_product_prepare_save',
                           array('product' => $product, 'request' => $this->getRequest()));
+                    }
                     $product->save();
                 }
                 $this->_getSession()->addSuccess(
@@ -151,11 +148,11 @@ class TBT_Enhancedgrid_Catalog_ProductController extends Mage_Adminhtml_Catalog_
         $this->_redirect('*/*/index');
     }
 
-    // Added by Tegan Snyder. 
-    public function changeattributesetAction() {
-
+    // Added by Tegan Snyder.
+    public function changeattributesetAction()
+    {
         $productIds = $this->getRequest()->getParam('product');
-        $storeId = (int)$this->getRequest()->getParam('store', 0);
+        $storeId = (int) $this->getRequest()->getParam('store', 0);
 
         // todo make sure store is set... check a post data below
         // $postData = Mage::app()->getRequest()->getPost();
@@ -163,16 +160,11 @@ class TBT_Enhancedgrid_Catalog_ProductController extends Mage_Adminhtml_Catalog_
         // print_r($postData);
         // echo '</pre>';
 
-        if(!is_array($productIds)) {
-
+        if (!is_array($productIds)) {
             $this->_getSession()->addError($this->__('Please select product(s)'));
-       
         } else {
-
             try {
-
                 foreach ($productIds as $productId) {
-
                     $product = Mage::getSingleton('catalog/product')
                     ->unsetData()
                     ->setStoreId($storeId)
@@ -182,19 +174,14 @@ class TBT_Enhancedgrid_Catalog_ProductController extends Mage_Adminhtml_Catalog_
                     ->save();
                 }
 
-                Mage::dispatchEvent('catalog_product_massupdate_after', array('products'=>$productIds));
+                Mage::dispatchEvent('catalog_product_massupdate_after', array('products' => $productIds));
                 $this->_getSession()->addSuccess(
                 $this->__('Total of %d record(s) were successfully updated', count($productIds)));
-
             } catch (Exception $e) {
-
                 $this->_getSession()->addError($e->getMessage());
             }
-
         }
 
-        $this->_redirect('*/*/', array('store'=>(int)$this->getRequest()->getParam('store', 0)));
-
+        $this->_redirect('*/*/', array('store' => (int) $this->getRequest()->getParam('store', 0)));
     }
-
 }

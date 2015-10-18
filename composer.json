@@ -4,9 +4,9 @@
     "description":"Improves the existing Magento admin product management grid. It adds some useful, customizable features to the admin product management grid including new columns and tools.",
     "authors":[
         {
-            "name":"Evaldas Taroza",
-            "email":"evaldas.taroza@ufirstgroup.com",
-            "homepage": "http://www.ufirstgroup.com",
+            "name":"Jay El-Kaake (special thanks to evaldas.taroza@ufirstgroup.com to making the composer.json file)"
+            "email":"jay@sweettoothhq.com",
+            "homepage": "http://www.sweettoothrewards.com",
             "role": "Developer"
         }
     ],

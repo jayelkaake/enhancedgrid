@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Sweet Tooth
+ * Sweet Tooth.
  *
  * NOTICE OF LICENSE
  *
@@ -13,38 +14,39 @@
  * to license@magentocommerce.com so we can send you a copy immediately.
  *
  * @category   Sweet Tooth
- * @package    TBT_Enhancedgrid
+ *
  * @copyright  Copyright (c) 2008-2010 Sweet Tooth (http://www.sweettoothrewards.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 /**
- * Grid checkbox column renderer
+ * Grid checkbox column renderer.
  *
  * @category   Sweet Tooth
- * @package    TBT_Enhancedgrid
+ *
  * @author      Sweet Tooth <contact@sweettoothrewards.com>
  */
 class TBT_Enhancedgrid_Block_Widget_Grid_Column_Renderer_Category extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Abstract
 {
     protected static $cat_map = null;
-    
-    public function __construct() {
+
+    public function __construct()
+    {
         return parent::_construct();
     }
 
     /**
-     * Renders grid column
+     * Renders grid column.
      *
-     * @param   Varien_Object $row
-     * @return  string
+     * @param Varien_Object $row
+     *
+     * @return string
      */
     public function render(Varien_Object $row)
     {
-        
         return $this->_getValue($row);
     }
-    
+
     /*
     public function renderProperty(Varien_Object $row)
     {
@@ -57,31 +59,28 @@ class TBT_Enhancedgrid_Block_Widget_Grid_Column_Renderer_Category extends Mage_A
         */
     protected function _getValue(Varien_Object $row)
     {
-        
         if ($getter = $this->getColumn()->getGetter()) {
             $val = $row->$getter();
         }
-        if(self::$cat_map == null) {
+        if (self::$cat_map == null) {
             $cat_col = Mage::getModel('catalog/category')->getCollection()->addAttributeToSelect('name');
             $cat_map = array();
-            foreach($cat_col as &$c) {
+            foreach ($cat_col as &$c) {
                 $cat_map[$c->getId()] = $c->getName();
             }
             self::$cat_map = $cat_map;
         }
         $category_ids_str = $row->getData('category_ids');
-        $category_ids = explode(",", $category_ids_str);
-        
+        $category_ids = explode(',', $category_ids_str);
+
         $cat_names = array();
-        foreach(self::$cat_map as $id=>$name) {
-            if(array_search($id, $category_ids) !== false) {
+        foreach (self::$cat_map as $id => $name) {
+            if (array_search($id, $category_ids) !== false) {
                 $cat_names[] = $name;
             }
         }
-        $cat_names_str = implode(",", $cat_names);
-        
+        $cat_names_str = implode(',', $cat_names);
+
         return $cat_names_str;
     }
-
-
 }
