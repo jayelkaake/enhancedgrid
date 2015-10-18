@@ -1,19 +1,19 @@
 <?php
 
 /**
- * This class passes information about current version of Enhancedgrid being run to the Sweet Tooth server.
+ * This class passes information about current version of Enhancedgrid being run to the Magecredit server.
  * All information is confidential and never distributed to any third priorities.
  *
- * @category   TBT
- *
- * @author     Sweet Tooth Team <contact@sweettoothrewards.com>
+ * @category   Wellfounded
+ * @author     Magecredit Team <hi@magecredit.com>
  */
 class TBT_Enhancedgrid_Block_Widget_Loyalty extends Mage_Adminhtml_Block_Template
 {
     public function _toHtml()
     {
         $html = <<<FEED
-	    	<!-- Visit http://www.sweettoothrewards.com/m for information about this frame.  You can remove it if you want. -->
+            <!-- You can remove it if you want though it's what helps pay for support of the free and open source module. -->
+	    	<!-- See https://github.com/jayelkaake/enhancedgrid for more info. -->
         	<iframe src="{$this->_getLoyaltyUrl()}" marginwidth="0" marginheight="0"
                 	align="middle" frameborder="0"
                     scrolling="no" style="width: 500px; float: left; height: 22px;">
@@ -48,7 +48,7 @@ FEED;
 
     protected function _getBaseLoyaltyUrl()
     {
-        $url = 'https://www.sweettoothrewards.com/m/';
+        $url = 'https://www.magecredit.com/m/';
 
         //@nelkaake: If the page is supposed to be HTTPS and the AJAX call is not HTTPS, add HTTPS
         // if it's HTTP and the url returned HTTPS, remove HTTPS
