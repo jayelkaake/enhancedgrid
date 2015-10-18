@@ -1,10 +1,11 @@
 {
     "name": "jayelkaake/enhancedgrid",
     "type": "magento-module",
+    "version": "1.3.4",
     "description":"Improves the existing Magento admin product management grid. It adds some useful, customizable features to the admin product management grid including new columns and tools.",
     "authors":[
         {
-            "name":"Jay El-Kaake (special thanks to evaldas.taroza@ufirstgroup.com to making the composer.json file)"
+            "name":"Jay El-Kaake (special thanks to evaldas.taroza@ufirstgroup.com to making the composer.json file)",
             "email":"jay@sweettoothhq.com",
             "homepage": "http://www.sweettoothrewards.com",
             "role": "Developer"
@@ -20,6 +21,43 @@
             ["app/design/adminhtml/default/default/layout/tbt_enhancedgrid.xml",  "app/design/adminhtml/default/default/layout/tbt_enhancedgrid.xml"],
             ["app/design/adminhtml/default/default/template/tbt/enhancedgrid",  "app/design/adminhtml/default/default/template/tbt/enhancedgrid"],
             ["app/etc/modules/TBT_Enhancedgrid.xml",  "app/etc/modules/TBT_Enhancedgrid.xml"]
-        ]
+        ],
+        "magento_connect":{
+            "license_uri":"http://www.gnu.org/licenses/gpl-3.0.html",
+            "summary":"Enhanced admin product grid with images, custom attributes and more.",
+            "channel":"community",
+            "php_min":"5.3.0",
+            "version": "1.3.4",
+            "php_max":"5.6.13",
+            "name": "TBT_Enhancedgrid",
+            "stability":"stable",
+            "content":[
+                {
+                    "type":"magecommunity",
+                    "structure":"dir",
+                    "path":"TBT/Enhancedgrid"
+                },
+                {
+                    "type":"mageetc",
+                    "structure":"file",
+                    "path":"modules/TBT_Enhancedgrid.xml"
+                },
+                {
+                    "type":"mage",
+                    "structure":"file",
+                    "path":"app/design/adminhtml/default/default/layout/tbt_enhancedgrid.xml"
+                },
+                {
+                    "type":"mage",
+                    "structure":"folder",
+                    "path":"app/design/adminhtml/default/default/template/tbt/enhancedgrid"
+                },
+                {
+                    "type":"mage",
+                    "structure":"folder",
+                    "path":"js/tbt/enhancedgrid"
+                }
+            ]
+        }
     }
 }
