@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Magento.
+ * Sweet Tooth.
  *
  * NOTICE OF LICENSE
  *
@@ -19,18 +18,16 @@
  * versions in the future. If you wish to customize Magento for your
  * needs please refer to http://www.magentocommerce.com for more information.
  *
- * @category    Mage
+ * @category   Sweet Tooth
  *
- * @copyright   Copyright (c) 2009 Irubin Consulting Inc. DBA Varien (http://www.varien.com)
- * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @copyright  Copyright (c) 2008-2011 Sweet Tooth (http://www.sweettoothrewards.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-
 /**
  * Store grid column filter.
  *
- * @category   Mage
- *
- * @author      Magento Core Team <core@magentocommerce.com>
+ * @category   Sweet Tooth
+ * @author      Jay El-Kaake <jay@sweettoothhq.com>
  */
 class TBT_Rewards_Block_Widget_Grid_Column_Filter_Category extends Mage_Adminhtml_Block_Widget_Grid_Column_Filter_Text
 {
