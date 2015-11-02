@@ -55,14 +55,6 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                         </truncatelongtextafter>
-                        <!--showimages translate="label">
-                            <label>Show Product Images</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>30</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                        </showimages-->
                     </fields>
                 </columns>
                 <images translate="label">
@@ -144,38 +136,6 @@
                         </dir>
                     </fields>
                 </defaults>
-                <!--export translate="label">
-                    <label>Products Grid Export</label>
-                    <sort_order>200</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <fields>
-                        <isenabled translate="label">
-                            <label>Enable Quick Export</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>10</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                        </isenabled>
-                    </fields>
-                </export-->
-                <!--search translate="label">
-                    <label>Products Grid Search</label>
-                    <sort_order>300</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <fields>
-                        <isenabled translate="label">
-                            <label>Enable Fulltext Search</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>50</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                        </isenabled>
-                    </fields>
-                </search-->
             </groups>
         </enhancedgrid>
     </sections>

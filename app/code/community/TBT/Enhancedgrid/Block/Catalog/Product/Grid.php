@@ -639,7 +639,7 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
 
     public function getGridUrl()
     {
-        return $this->getUrl('enhancedgrid/*/grid', array(
+        return $this->getUrl('adminhtml/*/grid', array(
             '_current' => true,
         ));
     }
