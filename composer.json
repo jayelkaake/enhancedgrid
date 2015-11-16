@@ -1,7 +1,7 @@
 {
     "name": "jayelkaake/enhancedgrid",
     "type": "magento-module",
-    "version": "1.3.4",
+    "version": "1.3.4.2",
     "description":"Improves the existing Magento admin product management grid. It adds some useful, customizable features to the admin product management grid including new columns and tools.",
     "authors":[
         {
