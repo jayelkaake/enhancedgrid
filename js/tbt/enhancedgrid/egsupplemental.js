@@ -1,5 +1,5 @@
 /**
- * Trade Business Technology Corp.
+ * Sweet Tooth.
  *
  * NOTICE OF LICENSE
  *
@@ -11,63 +11,68 @@
  * obtain it through the world-wide-web, please send an email
  * to license@magentocommerce.com so we can send you a copy immediately.
  *
- * @copyright  Copyright (c) 2008-2009 Trade Business Technology Corp. (contact@tbtcorp.com)
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category   Sweet Tooth
+ *
+ * @copyright  Copyright (c) 2008-2011 Sweet Tooth (http://www.sweettoothrewards.com)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
- 
- 
+
 //form tags to omit in NS6+:
+var omitformtags = ["input", "textarea", "select"]
 
-var omitformtags=["input", "textarea", "select"]
+omitformtags = omitformtags.join("|")
 
-omitformtags=omitformtags.join("|")
-
-function disableselect(e){
-if (omitformtags.indexOf(e.target.tagName.toLowerCase())==-1)
-return false
+function disableselect(e) {
+    if (omitformtags.indexOf(e.target.tagName.toLowerCase()) == -1)
+        return false
 }
 
-function reEnable(){
-return true
+function reEnable() {
+    return true
 }
 
 var originalHighlighting = false;
 
 function disableHighlighting() {
-  if (typeof document.onselectstart!="undefined") {
-    originalHighlighting = document.onselectstart;
-    document.onselectstart=new Function ("return false")
-  } else{
-    originalHighlighting = {
-      down: document.onmousedown,
-      up:   document.onmouseup
+    if (typeof document.onselectstart != "undefined") {
+        originalHighlighting = document.onselectstart;
+        document.onselectstart = new Function("return false")
+    } else {
+        originalHighlighting = {
+            down: document.onmousedown,
+            up: document.onmouseup
+        }
+        document.onmousedown = disableselect
+        document.onmouseup = reEnable
     }
-    document.onmousedown=disableselect
-    document.onmouseup=reEnable
-  }
 }
 
 function enableHighlighting() {
-  if (typeof document.onselectstart!="undefined") {
-    document.onselectstart = originalHighlighting;
-  } else{
-    document.onmousedown=originalHighlighting.down;
-    document.onmouseup=originalHighlighting.up;
-  }
+    if (typeof document.onselectstart != "undefined") {
+        document.onselectstart = originalHighlighting;
+    } else {
+        document.onmousedown = originalHighlighting.down;
+        document.onmouseup = originalHighlighting.up;
+    }
 }
 
 function keyWasPressed(e, targetKeyNum) {
     var keychar;
     var numcheck;
-    
-    if(window.event) // IE
+
+    if (window.event) // IE
     {
         keynum = e.keyCode;
-    }
-    else if(e.which) // Netscape/Firefox/Opera
+    } else if (e.which) // Netscape/Firefox/Opera
     {
         keynum = e.which;
     }
-    if(keynum == targetKeyNum) return true;
+    if (keynum == targetKeyNum) return true;
     return false;
 }

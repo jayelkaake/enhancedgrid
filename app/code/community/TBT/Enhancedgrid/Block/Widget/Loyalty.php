@@ -13,7 +13,7 @@ class TBT_Enhancedgrid_Block_Widget_Loyalty extends Mage_Adminhtml_Block_Templat
     public function _toHtml()
     {
         $html = <<<FEED
-	    	<!-- Visit http://www.sweettoothrewards.com/m for information about this frame.  You can remove it if you want. -->
+	    	<!-- Visit https://www.wdca.ca/m for information about this frame.  You can remove it if you want. -->
         	<iframe src="{$this->_getLoyaltyUrl()}" marginwidth="0" marginheight="0"
                 	align="middle" frameborder="0"
                     scrolling="no" style="width: 500px; float: left; height: 22px;">
@@ -48,7 +48,7 @@ FEED;
 
     protected function _getBaseLoyaltyUrl()
     {
-        $url = 'https://www.sweettoothrewards.com/m/';
+        $url = 'https://www.wdca.ca/m';
 
         //@nelkaake: If the page is supposed to be HTTPS and the AJAX call is not HTTPS, add HTTPS
         // if it's HTTP and the url returned HTTPS, remove HTTPS
