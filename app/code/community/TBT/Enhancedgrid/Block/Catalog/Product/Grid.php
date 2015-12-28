@@ -612,11 +612,35 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
         $this->getMassactionBlock()->addItem('refreshProducts',
             array(
                 'label' => $this->__('Refresh Products'),
-                'url' => $this->getUrl('enhancedgrid/*/massRefreshProducts', array(
+                'url' => $this->getUrl('*/*/massRefreshProducts', array(
                     '_current' => true,
                 )),
             ));
-
+			
+        // massAttributeSet...
+		
+	            $sets = Mage::getResourceModel('eav/entity_attribute_set_collection')
+                ->setEntityTypeFilter(Mage::getModel('catalog/product')->getResource()->getTypeId())
+                ->load()
+                ->toOptionHash();
+            $this->getMassactionBlock()->addItem(
+                'changeattributeset',
+                array(
+                    'label'      => Mage::helper('catalog')->__('Change Attribute Set'),
+                    'url'        => $this->getUrl('*/*/changeAttributeSet', array('_current' => true)),
+                    'additional' => array(
+                        'visibility' => array(
+                            'name'   => 'attribute_set',
+                            'type'   => 'select',
+                            'class'  => 'required-entry',
+                            'label'  => Mage::helper('catalog')->__('Attribute Set'),
+                            'values' => $sets,
+                        ),
+                    ),
+                )
+            );
+		
+		
         // $this->getMassactionBlock()->addItem('saveEditables', array(
         //     'label' => $this->__('SAVE EDITABLES'),
         //     'url'   => $this->getUrl('*/*/saveEditables', array('_current'=>true)),
