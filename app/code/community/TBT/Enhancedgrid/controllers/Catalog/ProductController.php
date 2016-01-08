@@ -142,7 +142,7 @@ class TBT_Enhancedgrid_Catalog_ProductController extends Mage_Adminhtml_Catalog_
     }
 
     // Added by Tegan Snyder.
-    public function changeattributesetAction()
+    public function changeAttributeSetAction()
     {
         $productIds = $this->getRequest()->getParam('product');
         $storeId = (int) $this->getRequest()->getParam('store', 0);
