@@ -574,6 +574,9 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
                     '_current' => true,
                 )),
             ));
+            
+        // enable other modules to add mass action
+        Mage::dispatchEvent('adminhtml_catalog_product_grid_prepare_massaction', array('block' => $this));
 
         // Divider
         $this->getMassactionBlock()->addItem('imagesDivider', $this->getMADivider('Images'));
