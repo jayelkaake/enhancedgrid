@@ -47,7 +47,7 @@ class TBT_Enhancedgrid_Model_Product_Collection_Category_Decorator extends TBT_E
         //@nelkaake -m 13/11/10: Added support for tables with prefixes
         $ccev_t = Mage::getConfig()->getTablePrefix().'catalog_category_entity_varchar';
 
-        $collection->joinField('categories', $ccev_t, "GROUP_CONCAT({$alias_prefix}categories.value)", 'entity_id=category_id',
+        $collection->joinField('categories', $ccev_t, "GROUP_CONCAT(DISTINCT {$alias_prefix}categories.value)", 'entity_id=category_id',
             "{$alias_prefix}categories.attribute_id={$category_name_attribute_id}", 'left');
 
         $collection->joinField('category', $ccev_t, 'value', 'entity_id=category_id',
