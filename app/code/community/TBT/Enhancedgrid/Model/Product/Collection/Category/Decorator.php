@@ -39,6 +39,12 @@ class TBT_Enhancedgrid_Model_Product_Collection_Category_Decorator extends TBT_E
         $collection = $this->getCollection();
 
         $alias_prefix = $this->_getAliasPrefix();
+        
+        $storeId =  Mage::app()->getRequest()->getParam('store');
+        
+        if(!$storeId){
+            $storeId = 0;
+        }
 
         $collection->joinField('category_id', 'catalog/category_product', 'category_id', 'product_id=entity_id', null, 'left');
 
@@ -48,10 +54,10 @@ class TBT_Enhancedgrid_Model_Product_Collection_Category_Decorator extends TBT_E
         $ccev_t = Mage::getConfig()->getTablePrefix().'catalog_category_entity_varchar';
 
         $collection->joinField('categories', $ccev_t, "GROUP_CONCAT(DISTINCT {$alias_prefix}categories.value)", 'entity_id=category_id',
-            "{$alias_prefix}categories.attribute_id={$category_name_attribute_id}", 'left');
+            "{$alias_prefix}categories.attribute_id={$category_name_attribute_id} and {$alias_prefix}categories.store_id = {$storeId}", 'left');
 
         $collection->joinField('category', $ccev_t, 'value', 'entity_id=category_id',
-            "{$alias_prefix}category.attribute_id={$category_name_attribute_id}", 'left');
+            "{$alias_prefix}category.attribute_id={$category_name_attribute_id} and {$alias_prefix}categories.store_id = {$storeId}", 'left');
 
         $collection->groupByAttribute('entity_id');
 
