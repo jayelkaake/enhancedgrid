@@ -209,9 +209,10 @@ varienGridMassaction.prototype.initialize = function(containerId, grid, checkedV
     this.setOldCallback('init_row', grid.initRowCallback);
     this.setOldCallback('pre_init', grid.preInitCallback);
 
-    this.useAjax = false;
-    this.grid = grid;
-    this.containerId = containerId;
+    this.useAjax         = false;
+    this.grid            = grid;
+    this.grid.massaction = this;
+    this.containerId     = containerId;
     this.initMassactionElements();
 
     this.checkedString = checkedValues;
