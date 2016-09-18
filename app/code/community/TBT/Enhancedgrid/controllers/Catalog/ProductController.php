@@ -105,7 +105,6 @@ class TBT_Enhancedgrid_Catalog_ProductController extends Mage_Adminhtml_Catalog_
         $response->setHeader('Content-type', $contentType);
         $response->setBody($content);
         $response->sendResponse();
-        die;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////

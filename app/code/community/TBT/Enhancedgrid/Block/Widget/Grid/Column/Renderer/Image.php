@@ -86,7 +86,7 @@ class TBT_Enhancedgrid_Block_Widget_Grid_Column_Renderer_Image extends Mage_Admi
             $dored = true;
             $val .= '[!]';
         }
-        if (strpos($val, 'placeholder/')) {
+        if (strpos($val, 'placeholder/') !== false) {
             $dored = true;
         }
 
