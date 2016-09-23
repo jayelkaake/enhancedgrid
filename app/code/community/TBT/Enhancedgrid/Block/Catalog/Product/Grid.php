@@ -175,13 +175,29 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
             $collection->addAttributeToSelect('status');
             $collection->addAttributeToSelect('visibility');
         }
+
+        $productResource = Mage::getResourceModel('catalog/product');
+        $defaults = ['price', 'status', 'visibility'];
+
         // EG: Select all needed columns.
         //id,name,type,attribute_set,sku,price,qty,visibility,status,websites,image
         foreach ($this->columnSettings as $col => $true) {
             if ($this->_isSpecialCol($col)) {
                 continue;
             }
-            $collection->addAttributeToSelect($col);
+
+            if (in_array($col, $defaults)) {
+                continue;
+            }
+
+            $attribute = $productResource->getAttribute($col);
+
+            if ($store->getId() && ($attribute->getBackendType() != 'static')) {
+                $collection->joinAttribute($col, $attribute, 'entity_id', null, 'left', $store->getId());
+
+            } else {
+                $collection->addAttributeToSelect($col);
+            }
         }
 
         if ($this->colIsVisible('categories')) {
