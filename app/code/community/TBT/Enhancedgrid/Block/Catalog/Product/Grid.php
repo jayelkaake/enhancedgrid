@@ -177,7 +177,7 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
         }
 
         $productResource = Mage::getResourceModel('catalog/product');
-        $defaults = ['price', 'status', 'visibility'];
+        $defaults = array('price', 'status', 'visibility');
 
         // EG: Select all needed columns.
         //id,name,type,attribute_set,sku,price,qty,visibility,status,websites,image
@@ -231,7 +231,6 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
                     $sourcemodel->setAttribute($attr);
                     if (method_exists($sourcemodel, 'getAllOptions')) {
                         try {
-                            //die($attr->getSourceModel());
                             $values = $sourcemodel->getAllOptions();
 
                             $options = array();
@@ -239,7 +238,6 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
                             foreach ($values as $value) {
                                 $options[$value['value']] = $value['label'];
                             }
-                            //die($attr_code);
                             $this->columnOptions[$attr_code] = $options;
 
                             return;
@@ -260,10 +258,7 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
                 foreach ($values as $value) {
                     $options[$value->getOptionId()] = $value->getValue();
                 }
-                //die($attr_code);
                 $this->columnOptions[$attr_code] = $options;
-
-     //die(print_r($this->columnOptions, true));
             }
         }
     }
@@ -536,9 +531,7 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
                 );
             }
             $innerSettings['index'] = $col;
-            //echo print_r($this->columnOptions, true);
             if (isset($this->columnOptions[$col])) {
-                //die($col);
                 $innerSettings['type'] = 'options';
                 $innerSettings['options'] = $this->columnOptions[$col];
             }
