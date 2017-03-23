@@ -524,8 +524,10 @@ class TBT_Enhancedgrid_Block_Catalog_Product_Grid extends Mage_Adminhtml_Block_W
             if (isset($defaults[$col])) {
                 $innerSettings = $defaults[$col];
             } else {
+		$attribute = Mage::getModel('catalog/resource_eav_attribute')->loadByCode(Mage_Catalog_Model_Product::ENTITY, $col);
+		$label = $attribute->getFrontendLabel();
                 $innerSettings = array(
-                    'header' => Mage::helper('catalog')->__($col),
+                    'header' => Mage::helper('catalog')->__($label),
                     'width' => '100px',
                     'type' => 'text',
                 );
